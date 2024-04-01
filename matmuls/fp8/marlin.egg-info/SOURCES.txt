@@ -1,0 +1,8 @@
+marlin_setup.py
+marlin/marlin_cuda.cpp
+marlin/marlin_cuda_kernel.cu
+marlin.egg-info/PKG-INFO
+marlin.egg-info/SOURCES.txt
+marlin.egg-info/dependency_links.txt
+marlin.egg-info/requires.txt
+marlin.egg-info/top_level.txt
