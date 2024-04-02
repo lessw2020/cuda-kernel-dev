@@ -64,7 +64,7 @@ elif '3090' in gpu:
 elif 'A6000' in gpu:
     SMS = 84
 else:
-    SMS = -1
+    SMS = 132
 
 MODELS = {
     'ideal': [
@@ -124,7 +124,7 @@ for groupsize in [-1, 128] if ALL else [128]:
                     # This is a special case constructed to be optimal for a thread-shape different than the default one
                     res_q = benchmark_quant(A, B, C, s, 64, 256, SMS)
                 else:
-                    res_q = benchmark_quant(A, B, C, s, -1, -1, SMS)
+                    res_q = benchmark_quant(A, B, C, s, 64, 256, SMS)
                 res_q['speedup'] = res_d['s'] / res_q['s']
                 tot_q['s'] += res_q['s']
                 for k in tot_q:

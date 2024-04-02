@@ -756,8 +756,8 @@ int marlin_cuda(
   if (thread_k == -1 || thread_n == -1) {
     if (prob_m <= 16) {
       // For small batchizes, better partioning is slightly more important than better compute utilization
-      thread_k = 128;
-      thread_n = 128;
+      thread_k = 64;
+      thread_n = 256;
     } else {
       thread_k = 64;
       thread_n = 256;
