@@ -185,6 +185,7 @@ __global__ void split_k_kernel_v1(float *A, float *B, float *C, int *perm, int m
         int global_index = row*n + t*tile_size + tx;
         int global_col = global_index % k;
         int global_row = global_index / k;
+        
         int perm_col = perm[global_col];
         int perm_idx = global_row*k + perm_col;
 
