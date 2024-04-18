@@ -79,7 +79,7 @@ def gemm_block_ptr_splitk(a_ptr, b_ptr, c_ptr,
             accumulator += tl.dot(a, b, accumulator)
 
         a_tile_ptr = tl.advance(a_tile_ptr, [0, block_k*splitk])
-        b_tile_ptr = tl.advance(b_tile_ptr, [block_k+splitk, 0])
+        b_tile_ptr = tl.advance(b_tile_ptr, [block_k*splitk, 0])
 
     c_block_ptr = tl.make_block_ptr(base=c_ptr, shape=(m, n), strides=(stride_cm, stride_cn),
                                     offsets=(block_offset_m, block_offset_n), block_shape=(block_m, block_n),
@@ -98,7 +98,7 @@ def matmul(a, b):
     group_m = 8
     num_warps = 8
     num_stages = 4
-    splitk = 16
+    splitk = 4
 
     fp8_fast_accum = True
     c = torch.empty((m, n), device=a.device, dtype=torch.float16)
