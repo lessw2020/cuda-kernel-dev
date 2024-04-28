@@ -1,3 +1,13 @@
+
+enum class ProducerWarpRole {
+      Mainloop = 0,
+      Warp1 = 1,
+      Epilogue = 2,
+      Warp3 = 3
+    };
+
+auto producer_warp_role = ProducerWarpRole(warp_idx_in_warp_group);
+
 // Mainloop Producer Warp
       if (producer_warp_role == ProducerWarpRole::Mainloop) {
         bool do_load_order_arrive = true;
