@@ -14,7 +14,6 @@ class H100OptimizedConfig:
     block_size_k: int = 256
     min_scale: float = 1e-4
     dtype: torch.dtype = torch.float8_e4m3fn
-    chunk_size: int = 64  # Optimal for H100 L1 cache
 
 
 # Constants
